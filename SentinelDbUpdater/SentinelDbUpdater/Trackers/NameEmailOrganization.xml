@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<contacts>
+  <contact name="Anne van Kesteren" email="annevk@annevk.nl" org="Mozilla" />
+  <contact name="Arron Eicholz" email="arronei@me.com" org="Microsoft" />
+  <contact name="Bjoern Hoehrmann" email="derhoermi@gmx.net" org="Mozilla" />
+  <contact name="Boris Zbarsky" email="bzbarsky@mit.edu" org="Mozilla" />
+  <contact name="Dael Jackson" email="daelcss@gmail.com" org="Invited Expert" />
+  <contact name="dauwhe" email="none@none" org="Invited Expert" />
+  <contact name="fantasai" email="fantasai.cvs@inkedblade.net" org="Invited Expert" />
+  <contact name="fantasai" email="fantasai.lists@inkedblade.net" org="Invited Expert" />
+  <contact name="Florian Rivoal" email="florian@rivoal.net" org="Invited Expert" />
+  <contact name="Florian Rivoasl" email="florian@rivoal.net" org="Invited Expert" />
+  <contact name="Gérard Talbot" email="www-style@gtalbot.org" org="Mozilla" />
+  <contact name="howcome" email="none@none" org="Opera" />
+  <contact name="Johannes Koch" email="koch@w3development.de" org="W3" />
+  <contact name="L. David Baron" email="dbaron@dbaron.org" org="Mozilla" />
+  <contact name="Lina Kemmel" email="lkemmel@il.ibm.com" org="IBM" />
+  <contact name="Rossen Atanassov" email="ratan@microsoft.com" org="Microsoft" />
+  <contact name="Tab Atkins" email="jackalmage@gmail.com" org="Google" />
+  <contact name="Tab Atkins Jr" email="jackalmage@gmail.com" org="Google" />
+  <contact name="Tab Atkins Jr." email="jackalmage@gmail.com" org="Google" />
+  <contact name="Tantek �&#x2021;elik" email="tantek@cs.stanford.edu" org="Mozilla" />
+  <contact name="Tantek Çelik" email="tantek@cs.stanford.edu" org="Mozilla" />
+</contacts>
