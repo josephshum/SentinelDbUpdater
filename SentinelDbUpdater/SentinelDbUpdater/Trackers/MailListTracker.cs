@@ -12,6 +12,11 @@ namespace SentinelDbUpdater.Trackers
     /// <summary>A tracker for getting data from W3C mail list web pages</summary>
     public class MailListTracker: TrackerBase
     {
+        public MailListTracker():base()
+        {
+            TrackerName = "MailList";
+        }
+        
         /// <summary>The name of the tracker</summary>
         private const string Tracker = "MailList";
 

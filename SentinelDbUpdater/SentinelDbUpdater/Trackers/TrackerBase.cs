@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
+using System.Reflection.Emit;
 using Microsoft.IE.IEPortal.Data.Sentinel.DAL;
 using Microsoft.IE.IEPortal.Data.Sentinel.DAL.DataModel;
 
@@ -10,6 +12,9 @@ namespace SentinelDbUpdater.Trackers
     /// </summary>
     public class TrackerBase
     {
+
+        public string TrackerName { get; set; }
+
         /// <summary>
         /// All trackers to implement function that retrieves the contribution infor between a date range
         /// </summary>
@@ -26,12 +31,39 @@ namespace SentinelDbUpdater.Trackers
         /// </summary>
         /// <param name="since">start date of the time period</param>
         /// <param name="until">end date of time time period</param>
-        public void RunTracker(DateTime since, DateTime until, bool isLocal)
+        public Tuple<int, int> RunTracker(DateTime since, DateTime until, bool isLocal)
         {
+            var retrieveTime = new Stopwatch();
+            var writeTime = new Stopwatch();
 
             var ds = SentinelDataService.GetInstance(isLocal);
+            retrieveTime.Start();
             var contributionList = RetrieveDataFromSource(since, until);
-            ds.AddContributions(contributionList);
+            retrieveTime.Stop();
+            
+            // Format and display the TimeSpan value. 
+            PrintLogger.WriteLine("Data retrieve completed. Runtime: " + elapsedTime(retrieveTime));
+            PrintLogger.WriteLine("Writing to db...");
+            
+            writeTime.Start();
+            var recordsAdded = ds.AddContributions(contributionList);
+            writeTime.Stop();
+            PrintLogger.WriteLine("Db write completed. Runtime: " + elapsedTime(writeTime));
+
+            var recordsSkipped = contributionList.Count - recordsAdded;
+
+            return new Tuple<int, int> (recordsAdded, recordsSkipped);
         }
+
+        public string elapsedTime(Stopwatch sw)
+        {
+            TimeSpan ts = sw.Elapsed;
+            string elapsedTime = String.Format("{0:00}:{1:00}:{2:00}.{3:00}",
+            ts.Hours, ts.Minutes, ts.Seconds,
+            ts.Milliseconds / 10);
+            return elapsedTime;
+        }
+
+        
     }
 }

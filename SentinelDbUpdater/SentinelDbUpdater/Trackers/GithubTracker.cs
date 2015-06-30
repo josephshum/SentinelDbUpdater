@@ -17,6 +17,14 @@ namespace SentinelDbUpdater.Trackers
     public class GithubTracker: TrackerBase
     {
 
+
+
+
+        public GithubTracker() : base()
+        {
+            this.TrackerName = "Github";
+        }
+        
         private static readonly Regex SpecIdentifierRegex = new Regex(@"\[\s*(?:(?:css[0-9]{0,2}\s*-\s*(?<spec>[-a-z0-9@]+?)(?:-[0-9]+)?)|(?<spec>css[0-9]{1,2}(?:\.?[0-9]+))|(?<spec>[a-z*-]+))\s*\]", RegexOptions.Compiled | RegexOptions.CultureInvariant | RegexOptions.ExplicitCapture | RegexOptions.IgnoreCase);
 
         // hardcoded string to define what's being retrieve

@@ -35,18 +35,22 @@ namespace Microsoft.IE.IEPortal.Data.Sentinel.DAL
             return _instance ?? (_instance = new SentinelDataService(isLocal));
         }
 
-        public void AddContributions(List<Contribution> contributions)
+        public int AddContributions(List<Contribution> contributions)
         {
             // makeing sure dups don't get added
             // retrieve all sha from db and save to hash table
             // also note that this assumes every sha from the db is different
+            var recordsAdded = 0;
             var existingSha = (from c in _db.Contributions select c.Sha).ToDictionary(sha => sha, sha => false);
             // only add contribution if the sha is not found in the hash
             foreach (var c in contributions.Where(c => !existingSha.ContainsKey(c.Sha)))
             {
                 existingSha.Add(c.Sha, false);
                 AddContribution(c);
+                recordsAdded++;
             }
+
+            return recordsAdded;
         }
 
         public void AddContribution(Contribution contribution)

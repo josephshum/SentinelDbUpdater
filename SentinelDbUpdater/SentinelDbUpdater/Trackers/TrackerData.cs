@@ -12,7 +12,7 @@ namespace SentinelDbUpdater.Trackers
     {
         private static readonly Regex EmailDomainIdentifier = new Regex(@"[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?<domain>(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+)[a-z0-9](?:[a-z0-9-]*[a-z0-9])?", RegexOptions.Compiled | RegexOptions.ExplicitCapture | RegexOptions.IgnoreCase);
 
-        private const string NameOrgXmlPath = "~/Trackers/NameEmailOrganization.xml";
+        private const string NameOrgXmlPath = @"Trackers\NameEmailOrganization.xml";
 
         //private string intentXmlPath = "~/Areas/Standards/Trackers/determineIntent.xml";
 
@@ -100,14 +100,15 @@ namespace SentinelDbUpdater.Trackers
 
         private static string ResolvePath(string xmlFile)
         {
-            var path = HostingEnvironment.MapPath(xmlFile);
-            if(string.IsNullOrWhiteSpace(path))
-            {
-                // We're not hosted in IIS. Try another mechanism
-                throw new NotImplementedException();
-            }
+            //var path = HostingEnvironment.MapPath(xmlFile);
+            //if(string.IsNullOrWhiteSpace(path))
+            //{
+            //    // We're not hosted in IIS. Try another mechanism
+            //    throw new NotImplementedException();
+            //}
 
-            return path;
+            //return path;
+            return xmlFile;
         }
 
         /// <summary>Processes the XML file for usage</summary>
