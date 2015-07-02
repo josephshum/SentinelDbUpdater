@@ -56,7 +56,7 @@ namespace Microsoft.IE.IEPortal.Data.Sentinel.DAL
         public void AddContribution(Contribution contribution)
         {
 
-            // TODO: Ask Richard on how to add indexing to model to improve adding records
+            // TODO: Tables already have indices. Ask Richard how to make this more efficient so don't need "FirstOrDefault"
             // Retrieve existing foreign keys if they exist
             var author = _db.Authors.FirstOrDefault(a => a.Name.Equals(contribution.Author.Name));
             if (author != null) contribution.Author = author;

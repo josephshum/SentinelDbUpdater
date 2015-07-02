@@ -42,8 +42,9 @@
     <Reference Include="Microsoft.IE.IEPortal.Caching">
       <HintPath>..\packages\Microsoft.IE.IEPortal.Caching.Core.1.0.5575.15529\lib\net451\Microsoft.IE.IEPortal.Caching.dll</HintPath>
     </Reference>
-    <Reference Include="Microsoft.IE.IEPortal.Data.Sentinel">
-      <HintPath>..\packages\Microsoft.IE.IEPortal.Data.Sentinel.5.0.2\lib\net451\Microsoft.IE.IEPortal.Data.Sentinel.dll</HintPath>
+    <Reference Include="Microsoft.IE.IEPortal.Data.Sentinel, Version=5.0.3.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.IE.IEPortal.Data.Sentinel.5.0.3\lib\net451\Microsoft.IE.IEPortal.Data.Sentinel.dll</HintPath>
     </Reference>
     <Reference Include="Octokit">
       <HintPath>..\packages\Octokit.0.13.0\lib\net45\Octokit.dll</HintPath>
